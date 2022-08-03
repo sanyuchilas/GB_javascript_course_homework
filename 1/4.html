@@ -28,14 +28,14 @@
 <script>
   "use strict";
 
-  const num = prompt('Введите число')
+  const num = prompt('Введите число');
 
-  const units = num % 10
-  const dozens = (num % 100 - units) / 10
-  const hundreds = (num % 1000 - 10 * dozens - units) / 100
+  const units = num % 10;
+  const dozens = (num % 100 - units) / 10;
+  const hundreds = (num % 1000 - 10 * dozens - units) / 100;
 
   console.log(`В числе ${num} количество сотен: ${hundreds},\
- десятков: ${dozens}, единиц: ${units}`)
+ десятков: ${dozens}, единиц: ${units}`);
 
 </script>
 </body>
