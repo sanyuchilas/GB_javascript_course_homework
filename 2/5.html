@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Homework</title>
+</head>
+<body>
+<!--
+Обязательное задание.
+
+Необходимо скопировать и вставить в данный скрипт все функции из 4 задания.
+Необходимо реализовать функцию:
+mathOperation(arg1, arg2, operation);
+Параметры:
+arg1 - первое число.
+arg2 - второе число.
+operation - строка, которая содержит один символ из: "+", "-", "*", "/".
+Функция mathOperation должна вернуть результат операции, который был передан в
+параметр operation для двух первых аргументов (arg1 и arg2).
+Функция mathOperation должна использовать для вычисления функции из 4 задания.
+
+Примеры вызова функции:
+console.log(mathOperation(5, 3, "+")); // 8
+console.log(mathOperation(5, 3, ":)")); // NaN
+
+Функции mathOperation всегда передаются корректные числа, проверки на NaN,
+Infinity делать не нужно, однако, в случае если был передан некорректный
+аргумент в параметр operation, необходимо вернуть NaN.
+
+Необходимо для всех функций прописать комментарии jsdoc https://jsdoc.app/.
+-->
+<script>
+  "use strict";
+
+  /**
+  * Складываем два числа
+  * @param {number} a первое число
+  * @param {number} b второе число
+  */
+  const sum = (a, b) => a + b;
+
+  /**
+  * Ищем разность большего числа с меньшим
+  * @param {number} a первое число
+  * @param {number} b второе число
+  */
+  const subtract = (a, b) => a - b >= 0 ? a - b : b - a;
+
+  /**
+  * Перемножаем два числа
+  * @param {number} a первое число
+  * @param {number} b второе число
+  */
+  const multiply = (a, b) => a * b;
+
+  /**
+  * Делим первое число на второе
+  * @param {number} a первое число
+  * @param {number} b второе число
+  */
+  const divide = (a, b) => a / b;
+
+  /**
+  * Выполняем операцию operation для первых двух аргументов
+  * @param {number} arg1 первое число
+  * @param {number} arg2 второе число
+  * @param {string} operation операция, выполняемая с двумя первыми аргументами
+  * @return {(number | NaN)}  
+  */
+  function mathOperation(arg1, arg2, operation) {
+    switch (operation) {
+      case '+':
+        return sum(arg1, arg2);
+      case '-':
+        return subtract(arg1, arg2);
+      case '*':
+        return multiply(arg1, arg2);
+      case '/':
+        return divide(arg1, arg2);
+      case ':(':
+        return ':)'
+      default:
+        return NaN;
+    }
+  }
+
+  console.log(mathOperation(6, 2, '+')); // 8
+  console.log(mathOperation(-3, 1, '+')); // -2
+
+  console.log(mathOperation(3, 1, '-')); // 2
+  console.log(mathOperation(1, 3, '-')); // 2
+  console.log(mathOperation(1, 1, '-')); // 0
+
+  console.log(mathOperation(2, 3, '*')); // 6
+  console.log(mathOperation(10, -1, '*')); // -10
+
+  console.log(mathOperation(6, 2, '/')); // 3
+  console.log(mathOperation(1, -3, '/')); // 0.3(3)
+
+  console.log(mathOperation(5, 3, ':)')); // NaN
+  console.log(mathOperation(0, 0, ':(')); // :)
+</script>
+</body>
+</html>
