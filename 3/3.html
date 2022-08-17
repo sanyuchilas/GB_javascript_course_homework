@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Homework</title>
+  <title>Homework 😃</title>
 </head>
 <body>
 <!--
@@ -29,7 +29,10 @@
     },
   ];
 
-  // Здесь пишем решение, данный комментарий необходимо стереть.
+  products.forEach(product => product.price -= product.price * 0.15);
+  console.log(products.map(({id, price}) => 
+    `Продукт с id равным ${id} теперь стоит ${price}`
+  ).join('\n'));
 </script>
 </body>
 </html>
