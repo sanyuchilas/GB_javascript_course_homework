@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Homework</title>
+  <title>Homework 😄</title>
 </head>
 <body>
 <!--
@@ -31,7 +31,25 @@
 <script>
   "use strict";
 
-  // Здесь пишем решение, данный комментарий необходимо стереть.
+  /**
+  * Ищем кол-во единиц, десятков и сотен в числе
+  * @param {number} num число
+  * @return {object|void}
+  */
+  function getDigitsOfNumber (num) {
+    if (!Number.isInteger(num) || num < 0 || num > 999) {
+      console.error('Что-то пошло не так) Пожалуйста, введите корректное число!');
+      return;
+    }
+
+    const units = num % 10;
+    const dozens = Math.trunc(num / 10) % 10;
+    const hundreds = Math.trunc(num / 100) % 10;
+
+    return {units, dozens, hundreds};
+  }
+
+  console.log(getDigitsOfNumber(467));
 </script>
 </body>
 </html>
