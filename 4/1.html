@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Homework 😄</title>
+</head>
+<body>
+<!--
+Обязательное задание.
+
+Необходимо данное задание выполнить в es5 стиле и в es6 стиле.
+Необходимо создать функцию-конструктор/класс для продукта.
+Названия: `ProductES5` для es5 стиля, `ProductES6` для es6 стиля.
+При создании объекта от функции-конструктора/класса необходимо передавать имя
+и цену товара, эта информация должна быть сохранена в объекте.
+Также у объекта должна быть возможность выполнить метод `make25Discount`, данный
+метод должен уменьшать стоимость продукта на 25%.
+Необходимо продемонстрировать работу с объектом (в свободной форме).
+-->
+<script>
+  "use strict";
+
+  console.log('------------ES5 style------------');
+
+  function ProductES5(name, price) {
+    if (new.target === undefined) {
+      return new ProductES5(name, price);
+    } // А делать вызов функции-конструктра возможным без new - это плохой тон?)
+
+    this.name = name;
+    this.price = price;
+  }
+
+  ProductES5.prototype.make25Discount = function () {
+    return this.price *= 0.75;
+  }
+
+  const myProductES5 = ProductES5('Бонсай', 1000);
+  
+  console.log(
+    `Название товара: "${myProductES5.name}", цена: ${myProductES5.price}`
+  );
+  myProductES5.make25Discount();
+  console.log(`Цена на товар со скидкой: ${myProductES5.price}`);
+  console.log(myProductES5);
+  console.log('Это экземпляр ProductES5:', myProductES5 instanceof ProductES5);
+
+
+  
+  console.log('');
+  console.log('------------ES6 style------------');
+
+  class ProductES6 {
+    constructor(name, price) {
+      this.name = name;
+      this.price = price;
+    }
+
+    make25Discount() {
+      return this.price *= 0.75;
+    }
+  }
+
+  const myProductES6 = new ProductES6('Бонсай', 1000);
+  
+  console.log(
+    `Название товара: "${myProductES6.name}", цена: ${myProductES6.price}`
+  );
+  myProductES6.make25Discount();
+  console.log(`Цена на товар со скидкой: ${myProductES6.price}`);
+  console.log(myProductES6);
+  console.log('Это экземпляр ProductES6:', myProductES6 instanceof ProductES6);
+</script>
+</body>
+</html>
