@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Homework</title>
+  <title>Homework 😄</title>
 </head>
 <body>
 <!--
@@ -50,7 +50,121 @@
 <script>
   "use strict";
 
-  // Здесь пишем решение, данный комментарий необходимо стереть.
+  console.log('------------ES5 style------------');
+
+  function PostES5(author, content) {
+    this.author = author;
+    this.content = content;
+    this.lastModifiedDate = new Date().toLocaleString();
+  }
+
+  PostES5.prototype.edit = function (data = '') {
+    this.content = data;
+    return this.lastModifiedDate = new Date().toLocaleString(); 
+  }
+
+  function AttachedPostES5(author, content) {
+    PostES5.call(this, author, content);
+    this.highlighted = false;
+  }
+
+  AttachedPostES5.prototype = Object.create(PostES5.prototype);
+  AttachedPostES5.prototype.constructor = AttachedPostES5;
+  AttachedPostES5.prototype.makeTextHighlighted = function () {
+    return this.highlighted = !this.highlighted;
+  }
+
+  const myAttachedPostES5 = new AttachedPostES5('Вша Леонид', 
+  'Получается, что это какой-то вшивый пост 🤔');
+
+  console.log(`Автор: "${myAttachedPostES5.author}"`);
+  console.log(`Пост: "${myAttachedPostES5.content}"`);
+  console.log(`Дата изменения: "${myAttachedPostES5.lastModifiedDate}"`);
+  console.log(`Подсвеченный: ${myAttachedPostES5.highlighted ? 'да' : 'нет'}`);
+
+  console.log('');
+  console.log(myAttachedPostES5);
+
+  alert('Вша Леонид не будет сразу же менять созданный пост 😡')
+
+  console.log('');
+  myAttachedPostES5.edit('"Пусть это будет не вшивый пост, пожалуйста 😳"');
+  console.log(`Измененный пост: ${myAttachedPostES5.content}`);
+  console.log(`Дата изменения: "${myAttachedPostES5.lastModifiedDate}"`);
+
+  myAttachedPostES5.makeTextHighlighted()
+  console.log(`Подсвеченный: ${myAttachedPostES5.highlighted ? 'да' : 'нет'}`);
+
+  console.log('');
+  console.log(myAttachedPostES5);
+
+  console.log('');
+  console.log('Это экземпляр AttachedPostES5:', 
+  myAttachedPostES5 instanceof AttachedPostES5);
+  console.log('В цепочке прототипов есть PostES5:', 
+  myAttachedPostES5 instanceof PostES5);
+
+
+  
+  console.log('');
+  console.log('');
+  console.log('------------ES6 style------------');
+
+
+
+  class PostES6 {
+    constructor(author, content) {
+      this.author = author;
+      this.content = content;
+      this.lastModifiedDate = new Date().toLocaleString();
+    }
+
+    edit(data) {
+      this.content = data;
+      this.lastModifiedDate = new Date().toLocaleString();
+    }
+  }
+
+  class AttachedPostES6 extends PostES6 {
+    constructor(author, content) {
+      super(author, content);
+      this.highlighted = false;
+    }
+
+    makeTextHighlighted() {
+      return this.highlighted = !this.highlighted;
+    }
+  }
+
+  const myAttachedPostES6 = new AttachedPostES6('Вша Леонид', 
+  'Получается, что это какой-то вшивый пост 🤔');
+
+  console.log(`Автор: "${myAttachedPostES6.author}"`);
+  console.log(`Пост: "${myAttachedPostES6.content}"`);
+  console.log(`Дата изменения: "${myAttachedPostES6.lastModifiedDate}"`);
+  console.log(`Подсвеченный: ${myAttachedPostES6.highlighted ? 'да' : 'нет'}`);
+
+  console.log('');
+  console.log(myAttachedPostES6);
+
+  alert('Да, Вша Леонид любит потянуть время 🤓')
+
+  console.log('');
+  myAttachedPostES6.edit('"Пусть это будет не вшивый пост, пожалуйста 😳"');
+  console.log(`Измененный пост: ${myAttachedPostES6.content}`);
+  console.log(`Дата изменения: "${myAttachedPostES6.lastModifiedDate}"`);
+
+  myAttachedPostES6.makeTextHighlighted()
+  console.log(`Подсвеченный: ${myAttachedPostES6.highlighted ? 'да' : 'нет'}`);
+
+  console.log('');
+  console.log(myAttachedPostES6);
+
+  console.log('');
+  console.log('Это экземпляр AttachedPostES6:', 
+  myAttachedPostES6 instanceof AttachedPostES6);
+  console.log('В цепочке прототипов есть PostES6:', 
+  myAttachedPostES6 instanceof PostES6);
 </script>
 </body>
 </html>
