@@ -65,15 +65,30 @@
   должно моментально отображаться в span. То есть при печати в input'е тег span
   также должен меняться.
   */
+  const input1 = document.querySelector('input#from');
+  const span = document.querySelector('span');
 
+  const onInput1Handler = event => {
+    span.textContent = event.target.value;
+  }
+
+  input1.addEventListener('input', onInput1Handler);
 
   /*
   2. При клике на кнопку с классом messageBtn необходимо элементу с классом
   message:
   1) добавить два класса: animate__animated и animate__fadeInLeftBig
   2) поставить данному элементу стиль visibility в значение 'visible'.
-   */
+  */
+  const messageBtn = document.querySelector('.messageBtn');
+  const messageEl = document.querySelector('.message');
 
+  const messageBtnClickHandler = event => {
+    messageEl.classList.add('animate__animated', 'animate__fadeInLeftBig');
+    messageEl.style.visibility = 'visible';
+  }
+
+  messageBtn.addEventListener('click', messageBtnClickHandler);
 
   /*
   3. Необходимо при отправке формы проверить, заполнены ли все поля в этой
@@ -85,8 +100,31 @@
   Если поле пустое, необходимо данное поле подсветить (поставить класс error
   данному полю).
   Если поле было чем-либо заполнено, подсветку (класс error) необходимо убрать.
-   */
+  */
+  const form = document.querySelector('form');
 
+  const onFormInputHandler = event => {
+    const control = event.target;
+
+    if (control.value) {
+      control.classList.remove('error') ;
+    } else {
+      control.classList.add('error');
+    }
+  }
+  const onFormSubmitHandler = event => {
+    const formControls = document.querySelectorAll('.form-control')
+
+    formControls.forEach(control => {
+      if (!control.value) {
+        event.preventDefault();
+        control.classList.add('error');
+      }
+    });
+  }
+
+  form.addEventListener('submit', onFormSubmitHandler);
+  form.addEventListener('input', onFormInputHandler);
 
 </script>
 </body>
