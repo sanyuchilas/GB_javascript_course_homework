@@ -9,6 +9,9 @@
     i {
       font-size: 50px;
     }
+    .stars_container {
+      font-size: 0;
+    }
     .golden {
       color: gold;
     }
@@ -37,13 +40,41 @@
   1. При наведении на любую из звезд, данной звезде должен ставиться класс
   golden, также такой класс должен ставиться всем звездам до нее слева.
   */
+  const startsListEl = document.querySelector('.stars_container');
+  
+  const onStarMouseHoverHandler = (event, type) => {
+    const star = event.target;
 
+    if (star.tagName === 'I') {
+      star.classList[type]('golden');
+
+      const changeAllPrevious = star => {
+        const previousStar = star.previousElementSibling;
+        
+        if (!previousStar) {
+          return;
+        } else {
+          previousStar.classList[type]('golden');
+          changeAllPrevious(previousStar)
+        }
+      }
+
+      changeAllPrevious(star)
+    }
+  }
+
+  startsListEl.addEventListener('mouseover', event => 
+    onStarMouseHoverHandler(event, 'add')
+  );
 
   /*
   2. Когда мы уводим курсор мыши от звезды, все поставленные классы из первого
   задания должны быть удалены.
-   */
+  */
 
+  startsListEl.addEventListener('mouseout', event => 
+    onStarMouseHoverHandler(event, 'remove')
+  );
 
   /*
   3. Когда мы переводим мышь от одной звезды к другой, у нас могут мигать
@@ -51,6 +82,22 @@
   Можем ли мы это исправить? Если да, то предложите решение.
   */
 
+  /*
+    Что ж, мигают они, потому что между нашими звездами есть пробельные символы,
+    а эти загадочные пробельные символы появляются из-за того, что у наших
+    звездочек стиль display: inline-block, который по факту ведет себя как
+    обычная буква, слово, а значит так же, как и любой текст - имеет пробелы
+    между этими словами-буквами, а переносы наших тегов i в HTML разметке как 
+    раз и воспринимаются браузером, как пробелы.
+
+    Отсюда решений данной проблемы может быть несколько:
+    1. Использовать display: block, и flex, для того, чтобы отображать звездочки
+    в строку
+    2. Писать в HTML разметке теги i без переноса
+    3. Можно у родителя элемента с display: inline-block сделать font-size: 0.
+    Так как пробел - это символ, то его размер просто станет равным нулю,
+    то есть все пробелы исчезнут
+  */
 
 </script>
 </body>
