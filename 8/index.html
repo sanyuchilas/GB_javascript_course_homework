@@ -7,8 +7,8 @@
     <title>Document</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
     <link rel="stylesheet" href="style.css">
-    <script defer src="app.js"></script>
-    <script defer src="basket.js"></script>
+    <script defer src="app.js" type="module"></script>
+    <script defer src="basket.js" type="module"></script>
 </head>
 
 <body>
@@ -139,7 +139,7 @@
 
         <div class="featuredItems">
 
-            <div class="featuredItem">
+            <div class="featuredItem" data-id="1">
 
                 <div class="featuredImgWrap">
                     <img src="images/featured/1.jpg" alt="">
@@ -153,7 +153,7 @@
 
                 <div class="featuredData">
                     <div class="featuredName">
-                        ELLERY X M'O CAPSULE
+                        Example 1
                     </div>
                     <div class="featuredText">
                         Known for her sculptural takes on traditional tailoring, Australian arbiter of cool Kym Ellery
@@ -161,13 +161,13 @@
                         up with Moda Operandi.
                     </div>
                     <div class="featuredPrice">
-                        $52.00
+                        $1.123
                     </div>
                 </div>
 
             </div>
 
-            <div class="featuredItem">
+            <div class="featuredItem" data-id="2">
 
                 <div class="featuredImgWrap">
                     <img src="images/featured/2.jpg" alt="">
@@ -181,7 +181,7 @@
 
                 <div class="featuredData">
                     <div class="featuredName">
-                        ELLERY X M'O CAPSULE
+                        Example 2
                     </div>
                     <div class="featuredText">
                         Known for her sculptural takes on traditional tailoring, Australian arbiter of cool Kym Ellery
@@ -189,13 +189,13 @@
                         up with Moda Operandi.
                     </div>
                     <div class="featuredPrice">
-                        $52.00
+                        $52.123
                     </div>
                 </div>
 
             </div>
 
-            <div class="featuredItem">
+            <div class="featuredItem" data-id="3">
 
                 <div class="featuredImgWrap">
                     <img src="images/featured/3.jpg" alt="">
@@ -209,7 +209,7 @@
 
                 <div class="featuredData">
                     <div class="featuredName">
-                        ELLERY X M'O CAPSULE
+                        Example 3
                     </div>
                     <div class="featuredText">
                         Known for her sculptural takes on traditional tailoring, Australian arbiter of cool Kym Ellery
@@ -217,7 +217,7 @@
                         up with Moda Operandi.
                     </div>
                     <div class="featuredPrice">
-                        $52.00
+                        $32
                     </div>
                 </div>
 
@@ -405,30 +405,16 @@
             </div>
         </div>
     </div>
-    <div class="basket">
+    <div class="basket hidden">
         <div class="basketHeader row">
             <div>Название товара</div>
             <div>Количество</div>
             <div>Цена за шт.</div>
             <div>Итого</div>
         </div>
-        <div class="basketProducts">
-            <div class="basketProduct row">
-                <div>Манго</div>
-                <div>10</div>
-                <div>100</div>
-                <div>1000</div>
-            </div>
-            <div class="basketProduct row">
-                <div>Манго</div>
-                <div>10</div>
-                <div>100</div>
-                <div>1000</div>
-            </div>
-        </div>
+        <div class="basketProductsList"></div>
         <div class="basketFooter row">
-            Товаров в корзине на сумму:
-		    <span class="basketTotalValue">0</span>
+		    <span class="basketTotalValue">Товаров в корзине на сумму: 0</span>
         </div>
     </div>
 </body>
