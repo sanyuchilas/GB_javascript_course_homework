@@ -7,6 +7,8 @@
     <title>Document</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
     <link rel="stylesheet" href="style.css">
+    <script defer src="app.js"></script>
+    <script defer src="basket.js"></script>
 </head>
 
 <body>
@@ -23,7 +25,7 @@
 
                 <span class="cartIconWrap">
                     <img class="cartIcon" src="images/cart.png" alt="">
-                    <span>5</span>
+                    <span>0</span>
                 </span>
             </div>
         </div>
@@ -403,8 +405,32 @@
             </div>
         </div>
     </div>
-
-    <script src="app.js"></script>
+    <div class="basket">
+        <div class="basketHeader row">
+            <div>Название товара</div>
+            <div>Количество</div>
+            <div>Цена за шт.</div>
+            <div>Итого</div>
+        </div>
+        <div class="basketProducts">
+            <div class="basketProduct row">
+                <div>Манго</div>
+                <div>10</div>
+                <div>100</div>
+                <div>1000</div>
+            </div>
+            <div class="basketProduct row">
+                <div>Манго</div>
+                <div>10</div>
+                <div>100</div>
+                <div>1000</div>
+            </div>
+        </div>
+        <div class="basketFooter row">
+            Товаров в корзине на сумму:
+		    <span class="basketTotalValue">0</span>
+        </div>
+    </div>
 </body>
 
 </html>
