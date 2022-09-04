@@ -1,0 +1,45 @@
+.row {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.basket {
+  display: block;
+  visibility: visible;
+  opacity: 1;
+  z-index: 1;
+  border-radius: 5px;
+  padding: 5px;
+  background-color: #fff;
+  position: absolute;
+  top: 75px;
+  right: 0;
+  min-width: 480px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, .5);
+}
+
+.basketHidden {
+  display: none;
+  opacity: 0;
+  visibility: hidden;
+  z-index: -1;
+}
+
+.basketHeader div, .basketProduct div {
+  width: 25%;
+  padding: 5px 15px;
+}
+
+.basketHeader, .basketFooter {
+  font-weight: bold;
+}
+
+.basketFooter {
+  justify-content: flex-end;
+  padding: 5px 15px;
+}
+
+.basketHeader, .basketProduct {
+  border-bottom: 1px solid #ebebeb;
+}
